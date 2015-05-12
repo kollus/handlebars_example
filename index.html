@@ -19,5 +19,58 @@
         </div>
     </div>
 </script>
+
+<script type="text/x-handlebars-template" id="student-template">
+	<p>{{FirstName}} {{LastName}}</p>
+</script>
+
+<script type="text/x-handlebars-template" id="student-group-template">
+	<h1> {{Title}} </h1>
+	<table border="1" style="width:100%">
+	<tr>
+		<td>그룹</td>
+		<td>성</td>
+		<td>이름</td>
+	</tr>
+	{{#man}}
+	<tr>
+		<td>{{../Group}} 그룹</td>
+		<td>{{LastName}}</td>
+		<td>{{FirstName}}</td>
+	</tr>
+	{{/man}}
+	</table>
+</script>
+
+<script type="text/x-handlebars-template" id="student-no-named-array-template">
+	<h1> Title을 넣을 수가 없습니다.</h1>
+	<table border="1" style="width:100%">
+	<tr>
+		<td>성</td>
+		<td>이름</td>
+	</tr>
+	{{#each this}}
+	<tr>
+		<td>{{LastName}}</td> <td>{{FirstName}}</td>
+	</tr>
+	{{/each}}
+	</table>
+</script>
+
+<script type="text/x-handlebars-template" id="student-array-template">
+	<h1> {{Title}} </h1>
+	<table border="1" style="width:100%">
+		<tr>
+			<td>그룹</td>
+			<td>성</td>
+			<td>이름</td>
+		</tr>
+		{{#student}}
+		<tr>
+			<td>{{../Group}} 그룹</td> <td>{{LastName}}</td> <td>{{FirstName}}</td>
+		</tr>
+		{{/student}}
+	</table>
+</script>
 </body>
 </html>
