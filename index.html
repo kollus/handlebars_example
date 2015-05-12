@@ -61,7 +61,40 @@
 	<h1> {{Title}} </h1>
 	<table border="1" style="width:100%">
 		<tr>
-			<td>그룹</td>
+			<td>성</td>
+			<td>이름</td>
+		</tr>
+		{{#student}}
+		<tr>
+			<td>{{LastName}}</td> <td>{{FirstName}}</td>
+		</tr>
+		{{/student}}
+	</table>
+</script>
+
+<script type="text/x-handlebars-template" id="child-attr-template">
+	<h1> {{Title}} </h1>
+	<table border="1" style="width:100%">
+		<tr>
+			<td>성(Student.LastName)</td><td>이름(Student.FirstName)</td>
+		</tr>
+		<tr>
+			<td>{{Student.LastName}}</td> <td>{{Student.FirstName}}</td>
+		</tr>
+		<tr>
+			<td>성(Student/LastName)</td><td>이름(Student/FirstName)</td>
+		</tr>
+		<tr>
+			<td>{{Student/LastName}}</td> <td>{{Student/FirstName}}</td>
+		</tr>
+	</table>
+</script>
+
+<script type="text/x-handlebars-template" id="parent-attr-template">
+	<h1> {{Title}} </h1>
+	<table border="1" style="width:100%">
+		<tr>
+			<td>그룹(부모속성)</td>
 			<td>성</td>
 			<td>이름</td>
 		</tr>
@@ -72,5 +105,7 @@
 		{{/student}}
 	</table>
 </script>
+
+
 </body>
 </html>

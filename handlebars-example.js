@@ -32,7 +32,7 @@ $('body').append(tplStudentNoNamedArr(ctxStudentNoNamedArr));
 // Named Array Example
 var srcStudentArr = $('#student-array-template').html();
 var tplStudentArr = Handlebars.compile(srcStudentArr);
-var ctxStudentArr = {Title:"Named Array Example", Group:"남자",
+var ctxStudentArr = {Title:"Named Array Example",
 	student:[
 		{FirstName:"핸들",LastName:"김",Korean:"",English:"",Math:"",Total:"",Average:"",Email:"",Mobile:""},
 		{FirstName:"노핸",LastName:"김",Korean:"",English:"",Math:"",Total:"",Average:"",Email:"",Mobile:""},
@@ -40,5 +40,25 @@ var ctxStudentArr = {Title:"Named Array Example", Group:"남자",
 		{FirstName:"수염",LastName:"장",Korean:"",English:"",Math:"",Total:"",Average:"",Email:"",Mobile:""}]
 };
 $('body').append(tplStudentArr(ctxStudentArr));
+
+// Named Array Example
+var srcChildAttrArr = $('#child-attr-template').html();
+var tplChildAttrArr = Handlebars.compile(srcChildAttrArr);
+var ctxChildAttrArr = {Title:"Child Attribute Example",
+	Student:{FirstName:"핸들",LastName:"김"}
+};
+$('body').append(tplChildAttrArr(ctxChildAttrArr));
+
+// Parent attribute Example
+var srcParentAttrArr = $('#parent-attr-template').html();
+var tplParentAttrArr = Handlebars.compile(srcParentAttrArr);
+var ctxParentAttrArr = {Title:"Parent Attribute", Group:"학생",
+	student:[
+		{FirstName:"핸들",LastName:"김"},
+		{FirstName:"노핸",LastName:"김"},
+		{FirstName:"바즈",LastName:"이"},
+		{FirstName:"수염",LastName:"장"}]
+};
+$('body').append(tplParentAttrArr(ctxParentAttrArr));
 });
 
