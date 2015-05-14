@@ -60,5 +60,41 @@ var ctxParentAttrArr = {Title:"Parent Attribute", Group:"학생",
 		{FirstName:"수염",LastName:"장"}]
 };
 $('body').append(tplParentAttrArr(ctxParentAttrArr));
+
+// {{{, }}} tag Example
+var srcHTMLEscape = $('#html-escape-template').html();
+var tplHTMLEscape = Handlebars.compile(srcHTMLEscape);
+var ctxHTMLEscape = {Title:"HTML Escape",Body:"<p>이 예제는 HTML escape 문자&lt;p&gt;를 보여주는 예제입니다.</p>",Escape:"{{Body}}",Unescape:"{{{Body}}}"};
+$('body').append(tplHTMLEscape(ctxHTMLEscape));
+
+// Helper #each Example 1
+var srcHelperEach1 = $('#helper-each1-template').html();
+var tplHelperEach1 = Handlebars.compile(srcHelperEach1);
+var ctxHelperEach1 = {Title:"Helper #each Example 1",
+	Student:[
+		{FirstName:"핸들",LastName:"김"},
+		{FirstName:"노핸",LastName:"김"},
+		{FirstName:"바즈",LastName:"이"},
+		{FirstName:"수염",LastName:"장"}]
+};
+$('body').append(tplHelperEach1(ctxHelperEach1));
+
+// Helper #each Example 2
+var srcHelperEach2 = $('#helper-each2-template').html();
+var tplHelperEach2 = Handlebars.compile(srcHelperEach2);
+var ctxHelperEach2 = {Title:"Helper #each Example 2",
+	Student:["핸들","노핸","바즈","수염"]
+};
+$('body').append(tplHelperEach2(ctxHelperEach2));
+
+// Helper #each Example 3
+var srcHelperEach3 = $('#helper-each3-template').html();
+var tplHelperEach3 = Handlebars.compile(srcHelperEach3);
+var ctxHelperEach3 = [
+		{FirstName:"핸들",LastName:"김"},
+		{FirstName:"노핸",LastName:"김"},
+		{FirstName:"바즈",LastName:"이"},
+		{FirstName:"수염",LastName:"장"}];
+$('body').append(tplHelperEach3(ctxHelperEach3));
 });
 
