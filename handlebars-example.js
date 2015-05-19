@@ -64,7 +64,8 @@ $('body').append(tplParentAttrArr(ctxParentAttrArr));
 // {{{, }}} tag Example
 var srcHTMLEscape = $('#html-escape-template').html();
 var tplHTMLEscape = Handlebars.compile(srcHTMLEscape);
-var ctxHTMLEscape = {Title:"HTML Escape",Body:"<p>이 예제는 HTML escape 문자&lt;p&gt;를 보여주는 예제입니다.</p>",Escape:"{{Body}}",Unescape:"{{{Body}}}"};
+var ctxHTMLEscape = {Title:"HTML Escape",Body:"<p>이 예제는 HTML escape 문자&lt;p&gt;를 보여주는 예제입니다.</p>",
+					Escape:"{{Body}}",Unescape:"{{{Body}}}"};
 $('body').append(tplHTMLEscape(ctxHTMLEscape));
 
 // Helper #each Example 1
@@ -96,5 +97,37 @@ var ctxHelperEach3 = [
 		{FirstName:"바즈",LastName:"이"},
 		{FirstName:"수염",LastName:"장"}];
 $('body').append(tplHelperEach3(ctxHelperEach3));
+
+// Helper #if Example 1
+var srcHelperIf1 = $('#helper-if1-template').html();
+var tplHelperIf1 = Handlebars.compile(srcHelperIf1);
+var ctxHelperIf1 = {Title:"Helper #if Example 1", FirstName:"핸들", LastName:"김"};
+$('body').append(tplHelperIf1(ctxHelperIf1));
+
+// Helper #if Example 2
+var srcHelperIf2 = $('#helper-if2-template').html();
+var tplHelperIf2 = Handlebars.compile(srcHelperIf2);
+var ctxHelperIf2 = {Title:"Helper #if Example 2", FirstName:"핸들", LastName:"김"};
+$('body').append(tplHelperIf2(ctxHelperIf2));
+
+// Helper #else Example
+var srcHelperElse = $('#helper-else-template').html();
+var tplHelperElse = Handlebars.compile(srcHelperElse);
+var ctxHelperElse = {Title:"", FirstName:"핸들", LastName:"김"};
+$('body').append(tplHelperElse(ctxHelperElse));
+
+// Helper #else Example
+var srcHelperUnless = $('#helper-unless-template').html();
+var tplHelperUnless = Handlebars.compile(srcHelperUnless);
+var ctxHelperUnless = {Title:"", FirstName:"핸들", LastName:"김"};
+$('body').append(tplHelperUnless(ctxHelperUnless));
+
+// Helper #with Example
+var srcHelperWith = $('#helper-with-template').html();
+var tplHelperWith = Handlebars.compile(srcHelperWith);
+var ctxHelperWith = {Title:"Helper #with Example",
+	Student:{FirstName:"핸들",LastName:"김"}};
+$('body').append(tplHelperWith(ctxHelperWith));
+
 });
 

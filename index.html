@@ -160,5 +160,65 @@
 	</table>
 </script>
 
+<script type="text/x-handlebars-template" id="helper-if1-template">
+		<h1> {{Title}} </h1>
+		{{#if Title}}
+		<table border="1" style="width:100%">
+			<tr>
+				<td>{{LastName}}</td> <td>{{FirstName}}</td>
+			</tr>
+		</table>
+		{{/if}}
+</script>
+
+<script type="text/x-handlebars-template" id="helper-if2-template">
+		<h1> {{Title}} </h1>
+		{{#if Title.length}}
+		<h3> Title.length의 값은 {{Title.length}} 입니다. </h3>
+		<table border="1" style="width:100%">
+			<tr>
+				<td>{{LastName}}</td> <td>{{FirstName}}</td>
+			</tr>
+		</table>
+		{{/if}}
+</script>
+
+<script type="text/x-handlebars-template" id="helper-else-template">
+		<h1> {{Title}} </h1>
+		{{#if Title.length}}
+		<h3> Title.length의 값은 {{Title.length}} 입니다. </h3>
+		<table border="1" style="width:100%">
+			<tr>
+				<td>{{LastName}}</td> <td>{{FirstName}}</td>
+			</tr>
+		</table>
+		{{else}}
+		<h3> Title.length의 값은 {{Title.length}} 입니다. </h3>
+		{{/if}}
+</script>
+
+<script type="text/x-handlebars-template" id="helper-unless-template">
+		<h1> {{Title}} </h1>
+		{{#unless Title.length}}
+		<h3> Title.length의 값은 {{Title.length}} 입니다. </h3>
+		<table border="1" style="width:100%">
+			<tr>
+				<td>{{LastName}}</td> <td>{{FirstName}}</td>
+			</tr>
+		</table>
+		{{/unless}}
+</script>
+
+<script type="text/x-handlebars-template" id="helper-with-template">
+		<h1> {{Title}} </h1>
+		{{#with Student}}
+		<table border="1" style="width:100%">
+			<tr>
+				<td>{{LastName}}</td> <td>{{FirstName}}</td>
+			</tr>
+		</table>
+		{{/with}}
+</script>
+
 </body>
 </html>
