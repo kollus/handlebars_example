@@ -226,9 +226,11 @@
 	<p>{{Name}}의 국어 등급은 <b>{{KorGrade Kor}}</b>입니다.</p>
 </script>
 
-<script type="text/x-handlebars-template" id="cbh-template">
-	<h1> {{Title}} </h1>
-	{{cbhScore}}
+<script type="text/x-handlebars-template" id="block-helper-template">
+	<h1> Custom Block Helper Example </h1>
+	{{#cbhScore this}}
+	<p>{{Name}}의 성적 총 합계는 {{Score}}입니다.</p>
+	{{/cbhScore}}
 </script>
 
 </body>

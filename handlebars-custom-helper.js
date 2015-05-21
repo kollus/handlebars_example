@@ -1,3 +1,4 @@
+// Custom Helper
 Handlebars.registerHelper ("KorGrade", function (Kor) {
    if (Kor >= 90) {
        return "A" ;
@@ -13,29 +14,30 @@ Handlebars.registerHelper ("KorGrade", function (Kor) {
    }
 });
 
-Handlebars.registerHelper("cbhScore", function(cbhObject, options){
+$(function () {
+var srcCustomHelper = $('#custom-helper-template').html();
+var tplCustomHelper = Handlebars.compile(srcCustomHelper);
+var ctxCustomHelper = {Title:"Custom Helper Example", Name:"Handle Kim", Kor:85};
+$('body').append(tplCustomHelper(ctxCustomHelper));
+});
+
+// Custom block helper
+Handlebars.registerHelper("cbhScore", function(objBlockHelper, Options){
 	var totalScore = "";
 	
-	for(var i=cbhObject.length - 1 ; i>=0 ; i--){
-		cbhObject[i].score = cbhObject[i].score.reduce(function (prev, cur, index, array){
+	for(var i=objBlockHelper.length - 1 ; i >= 0 ; i--){
+		objBlockHelper[i].Score = objBlockHelper[i].Score.reduce(function (prev, cur){
 			return prev+cur;
 		});
-		totalScore += options.fn(cbhObject[i]);
+		totalScore += Options.fn(objBlockHelper[i]);
 	}
 	return totalScore;
 });
 
 $(function () {
-// Custom Helper
-var srcCustomHelper = $('#custom-helper-template').html();
-var tplCustomHelper = Handlebars.compile(srcCustomHelper);
-var ctxCustomHelper = {Title:"Custom Helper Example", Name:"Handle Kim", Kor:85};
-$('body').append(tplCustomHelper(ctxCustomHelper));
-
-// Custom block helper
-var cbhSource = $('#cbh-template').html();
-var cbhTemplate = Handlebars.compile(cbhSource);
-var cbhContextObj = [{name:"HK Song",score:[50,50,50,50]},{name:"HC Shin",score:[60,60,60,60]}];
-$('body').append(cbhTemplate(cbhContextObj));
-
+var srcBlockHelper = $('#block-helper-template').html();
+var tplBlockHelper = Handlebars.compile(srcBlockHelper);
+var ctxBlockHelper = [{Name:"김핸들", Score:[20,40,50,60]},
+					{Name:"이바즈", Score:[43,37,59,68]}];
+$('body').append(tplBlockHelper(ctxBlockHelper));
 });
