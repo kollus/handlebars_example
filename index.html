@@ -7,6 +7,7 @@
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="handlebars-v2.0.0.js"></script>
 	<script src="handlebars-example.js"></script>
+	<script src="handlebars-custom-helper.js"></script>
 </head>
 
 <body>
@@ -218,6 +219,16 @@
 			</tr>
 		</table>
 		{{/with}}
+</script>
+
+<script type="text/x-handlebars-template" id="custom-helper-template">
+	<h1> {{Title}} </h1>
+	<p>{{Name}}의 국어 등급은 <b>{{KorGrade Kor}}</b>입니다.</p>
+</script>
+
+<script type="text/x-handlebars-template" id="cbh-template">
+	<h1> {{Title}} </h1>
+	{{cbhScore}}
 </script>
 
 </body>
